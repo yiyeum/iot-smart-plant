@@ -15,12 +15,16 @@ const useStyles = makeStyles((theme: Theme) =>
             textAlign: 'center' as 'center',
         },
         action: {
-            margin: '0 auto'
+            backgroundColor: theme.palette.primary.main
+        },
+        btn: {
+            margin: '0 auto',
+            color: theme.palette.common.white,
         },
         icon: {
             borderRadius: '50%',
-            backgroundColor: theme.palette.primary.main,
-            color: theme.palette.common.white,
+            border: `2px solid ${theme.palette.primary.main}`,
+            color: theme.palette.primary.main,
             width: '4em',
             height: '4em',
             textAlign: 'center' as 'center',
@@ -59,8 +63,8 @@ export const PlantCard = () => {
                     </CardContent>
                 </Link>
             </CardActionArea>
-            <CardActions>
-                <Button size="small" className={classes.action}>
+            <CardActions className={classes.action}>
+                <Button size="small" className={classes.btn}>
                     {formatMessage({ id: 'plant.card.water' })}
                 </Button>
             </CardActions>

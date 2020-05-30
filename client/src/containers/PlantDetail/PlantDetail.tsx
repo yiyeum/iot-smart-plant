@@ -5,7 +5,8 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             backgroundColor: theme.palette.background.paper,
-            borderRadius: '8px'
+            borderRadius: '8px',
+            padding: 5
         }
     })
 );
