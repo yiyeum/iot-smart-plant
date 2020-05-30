@@ -1,2 +1,2 @@
-export * from './Form'
-export * from './Home'
+export * from './PlantDetail'
+export * from './Dashboard'

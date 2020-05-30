@@ -1,6 +1,5 @@
 // URL
 export const DEFAULT_URL = '/'
-export const FORM_URL = '/form'
+export const PLANT_DETAIL_URL = '/plant/:id'
 
 // General
-export const FORM = 'Form'

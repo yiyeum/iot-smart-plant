@@ -17,7 +17,7 @@ const styles = {
     }
 }
 
-const FormBase = (props: WithStyles<typeof styles>) => {
+const PlantDetailBase = (props: WithStyles<typeof styles>) => {
     const { classes } = props
     const [form, setForm] = useState({ fullName: '', age: 0 })
 
@@ -50,4 +50,4 @@ const FormBase = (props: WithStyles<typeof styles>) => {
     )
 }
 
-export const Form = withStyles(styles)(FormBase)
+export const PlantDetail = withStyles(styles)(PlantDetailBase)
