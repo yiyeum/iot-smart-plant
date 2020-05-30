@@ -8,6 +8,9 @@ import { PLANT_DETAIL_URL } from '../../constants'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
+        root: {
+            backgroundColor: theme.palette.background.paper
+        },
         center: {
             textAlign: 'center' as 'center',
         },
@@ -32,7 +35,7 @@ export const PlantCard = () => {
     const classes = useStyles()
     const { formatMessage } = useIntl()
     return (
-        <Card>
+        <Card className={classes.root}>
             <CardActionArea>
                 <Link to={`${PLANT_DETAIL_URL}/${2}`}>
                     <CardContent>

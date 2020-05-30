@@ -1,16 +1,11 @@
 import React from 'react'
-import { Grid, Box, WithStyles, withStyles } from '@material-ui/core'
+import { Grid, WithStyles, withStyles } from '@material-ui/core'
 import { useIntl } from 'react-intl'
-import { PlantCard, Title } from '../../components'
+import { PlantCard } from '../../components'
 
-const styles = {
-    root: {
-        backgroundImage: "url('../../constant/img/background.jpg')"
-    }
-}
+const styles = {}
 
 const DashboardBase = (props: WithStyles<typeof styles>) => {
-    const { classes } = props
     const { formatMessage } = useIntl()
     return (
         <Grid container>
