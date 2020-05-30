@@ -11,8 +11,8 @@ const PlantDetailBase = (props: WithStyles<typeof styles>) => {
     const { classes } = props
 
     return (
-        <>
-            <Box m={5}>
+        <Box p={5}>
+            <Box mb={5}>
                 <Typography variant='h4' color='textPrimary'>Name</Typography>
             </Box>
             <Box m={3}>
@@ -26,7 +26,7 @@ const PlantDetailBase = (props: WithStyles<typeof styles>) => {
                 <Typography variant='h6' color='primary'>Note</Typography>
                 <Typography variant='body2'>note note note</Typography>
             </Box>
-        </>
+        </Box>
     )
 }
 
