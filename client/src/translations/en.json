@@ -1,4 +1,5 @@
 {
     "dashboard.title": "Dashboard",
-    "plant.card.water": "Water"
+    "plant.card.water": "Water",
+    "plant.detail.title": "Plant Detail"
 }

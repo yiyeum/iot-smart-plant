@@ -1,11 +1,9 @@
 import React from 'react'
 import { Box, Typography } from '@material-ui/core'
-import { Title } from '../../components'
 
 export const PlantDetail = () => {
     return (
-        <Box p={5}>
-            <Title>Name</Title>
+        <>
             <Box m={3}>
                 <Typography variant='h6' color='primary'>Plant Details</Typography>
                 <ul>
@@ -17,6 +15,6 @@ export const PlantDetail = () => {
                 <Typography variant='h6' color='primary'>Note</Typography>
                 <Typography variant='body2'>note note note</Typography>
             </Box>
-        </Box>
+        </>
     )
 }
