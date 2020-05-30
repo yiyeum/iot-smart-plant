@@ -36,30 +36,32 @@ const DashboardBase = (props: WithStyles<typeof styles>) => {
     const { formatMessage } = useIntl()
     return (
         <Box p={6}>
-            <Typography variant='h4'>{formatMessage({ id: 'dashboard.title' })}</Typography>
+            <Typography variant='h4' color='textPrimary'>{formatMessage({ id: 'dashboard.title' })}</Typography>
             <Grid container>
                 <Grid item md={4}>
                     <Card>
                         <CardActionArea>
-                            <CardContent>
-                                <Typography gutterBottom variant="h5" component="h2">
-                                    Name
-                                </Typography>
-                            </CardContent>
-                            <CardMedia
-                                image=""
-                                title="Contemplative Reptile"
-                            />
-                            <CardContent className={classes.center}>
-                                <div className={classes.icon}>
-                                    <LocalDrinkRoundedIcon />
-                                    <Typography variant='body2'>65%</Typography>
-                                </div>
-                                <div className={`${classes.icon} ${classes.light}`}>
-                                    <Brightness4Icon />
-                                    <Typography variant='body2'>70%</Typography>
-                                </div>
-                            </CardContent>
+                            <Link to='plant/3'>
+                                <CardContent>
+                                    <Typography gutterBottom variant="h5" component="h2" color='primary'>
+                                        Name
+                                    </Typography>
+                                </CardContent>
+                                <CardMedia
+                                    image=""
+                                    title="Contemplative Reptile"
+                                />
+                                <CardContent className={classes.center}>
+                                    <div className={classes.icon}>
+                                        <LocalDrinkRoundedIcon />
+                                        <Typography variant='body2'>65%</Typography>
+                                    </div>
+                                    <div className={`${classes.icon} ${classes.light}`}>
+                                        <Brightness4Icon />
+                                        <Typography variant='body2'>70%</Typography>
+                                    </div>
+                                </CardContent>
+                            </Link>
                         </CardActionArea>
                         <CardActions>
                             <Button size="small" color="primary" className={classes.action}>
