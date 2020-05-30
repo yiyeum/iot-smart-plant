@@ -1,17 +1,13 @@
 import React from 'react'
-import { Grid, Typography, Box, WithStyles, withStyles } from '@material-ui/core'
+import { Grid, Box, WithStyles } from '@material-ui/core'
 import { useIntl } from 'react-intl'
-import { PlantCard } from '../../components'
-const styles = {}
+import { PlantCard, Title } from '../../components'
 
-const DashboardBase = (props: WithStyles<typeof styles>) => {
-    const { classes } = props
+export const Dashboard = () => {
     const { formatMessage } = useIntl()
     return (
         <Box p={5}>
-            <Box mb={5}>
-                <Typography variant='h4' color='textPrimary'>{formatMessage({ id: 'dashboard.title' })}</Typography>
-            </Box>
+            <Title>{formatMessage({ id: 'dashboard.title' })}</Title>
             <Grid container>
                 <Grid item md={4}>
                     <PlantCard />
@@ -20,5 +16,3 @@ const DashboardBase = (props: WithStyles<typeof styles>) => {
         </Box>
     );
 }
-
-export const Dashboard = withStyles(styles)(DashboardBase)
