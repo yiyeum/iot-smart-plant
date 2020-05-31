@@ -1,10 +1,11 @@
 import React from 'react'
-import { makeStyles, createStyles, Typography, WithStyles, withStyles, Card, CardActionArea, CardMedia, CardActions, CardContent, Button, Theme } from '@material-ui/core'
+import { makeStyles, createStyles, Typography, Card, CardActionArea, CardMedia, CardActions, CardContent, Button, Theme } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import { useIntl } from 'react-intl'
 import LocalDrinkRoundedIcon from '@material-ui/icons/LocalDrinkRounded'
 import Brightness4Icon from '@material-ui/icons/Brightness4'
 import { PLANT_DETAIL_URL } from '../../constants'
+import { IPlant } from '../../models'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -25,6 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
             borderRadius: '50%',
             border: `2px solid ${theme.palette.primary.main}`,
             color: theme.palette.primary.main,
+            backgroundColor: theme.palette.background.paper,
             width: '4em',
             height: '4em',
             textAlign: 'center' as 'center',
@@ -35,22 +37,27 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export const PlantCard = () => {
+interface IPlantCard {
+    plant: IPlant
+}
+
+export const PlantCard = (props: IPlantCard) => {
+    const { plant } = props
     const classes = useStyles()
     const { formatMessage } = useIntl()
-    return (
-        <Card className={classes.root}>
-            <CardActionArea>
-                <Link to={`${PLANT_DETAIL_URL}/${2}`}>
+
+    return <Card key={plant.id} className={classes.root} >
+        <CardActionArea>
+            <Link to={`${PLANT_DETAIL_URL}/${plant.id}`}>
+                <CardMedia
+                    image={plant.img}
+                    title={plant.name}
+                >
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2" color='textPrimary'>
-                            Name
+                            {plant.name}
                         </Typography>
                     </CardContent>
-                    <CardMedia
-                        image=""
-                        title="Contemplative Reptile"
-                    />
                     <CardContent className={classes.center}>
                         <div className={classes.icon}>
                             <LocalDrinkRoundedIcon />
@@ -61,14 +68,14 @@ export const PlantCard = () => {
                             <Typography variant='body2'>70%</Typography>
                         </div>
                     </CardContent>
-                </Link>
-            </CardActionArea>
-            <CardActions className={classes.action}>
-                <Button size="small" className={classes.btn}>
-                    {formatMessage({ id: 'plant.card.water' })}
-                </Button>
-            </CardActions>
-        </Card>
-    );
+                </CardMedia>
+            </Link>
+        </CardActionArea>
+        <CardActions className={classes.action}>
+            <Button size="small" className={classes.btn}>
+                {formatMessage({ id: 'plant.card.water' })}
+            </Button>
+        </CardActions>
+    </Card >
 }
 

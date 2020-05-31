@@ -1,19 +1,24 @@
 import React from 'react'
-import { Grid, WithStyles, withStyles } from '@material-ui/core'
-import { useIntl } from 'react-intl'
+import { Grid, Typography } from '@material-ui/core'
+import { useSelector } from 'react-redux'
 import { PlantCard } from '../../components'
+import { plantsSelector } from '../../slices/plants'
+import { IPlant } from '../../models'
 
-const styles = {}
+export const Dashboard = () => {
+    const plants: IPlant[] = useSelector(plantsSelector)
 
-const DashboardBase = (props: WithStyles<typeof styles>) => {
-    const { formatMessage } = useIntl()
     return (
         <Grid container>
             <Grid item md={4}>
-                <PlantCard />
+                {
+                    plants.length > 0 ?
+                        plants.map((plant: IPlant) => {
+                            return <PlantCard key={plant.id} plant={plant} />
+                        }) :
+                        <Typography>No Plant</Typography>
+                }
             </Grid>
         </Grid>
     );
 }
-
-export const Dashboard = withStyles(styles)(DashboardBase)

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Box, withStyles, WithStyles } from '@material-ui/core'
 import { Title } from '../../components'
-import * as backgroundImage from '../../constants/img/background.jpg'
 
 interface ITitleAndContent extends WithStyles<typeof styles> {
     title: JSX.Element | string
@@ -10,9 +9,8 @@ interface ITitleAndContent extends WithStyles<typeof styles> {
 
 const styles = {
     root: {
-        backgroundImage: `url('${backgroundImage}')`,
+        backgroundImage: `url('https://images.cdn2.stockunlimited.net/clipart/plant-pattern-background_1943348.jpg')`,
         backgroundAttachment: 'fixed',
-        backgroundRepeat: 'no-repeat',
         minHeight: '100vh'
     }
 }

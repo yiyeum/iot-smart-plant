@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { PlantDetail, Dashboard } from './pages'
-import { DEFAULT_URL, PLANT_DETAIL_URL } from './constants';
+import { PlantDetail, Dashboard } from '../pages'
+import { DEFAULT_URL, PLANT_DETAIL_URL } from '../constants';
 
 function App() {
   return (
