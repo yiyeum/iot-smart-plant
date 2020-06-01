@@ -1,6 +1,7 @@
 import React from 'react'
+import { useIntl } from 'react-intl'
 import { useSelector } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import { withRouter, RouteProps } from 'react-router-dom'
 import { Box, Typography, createStyles, makeStyles, Theme } from '@material-ui/core'
 import { PLANT_DETAIL_URL } from '../../constants'
 import { plantsSelector } from '../../slices/plants'
@@ -16,26 +17,29 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-const PlantDetailBase = (props: any) => {
-    const classes = useStyles()
+const getUrlId = ({ location }: RouteProps, from: string) => parseInt(location?.pathname.split(`${from}/`)[1] ?? '0')
+
+const PlantDetailBase = (props: RouteProps) => {
+    const { root } = useStyles()
+    const { formatMessage } = useIntl()
     const plants: IPlant[] = useSelector(plantsSelector)
-    const plantId: string = props.location.pathname.split(`${PLANT_DETAIL_URL}/`)[1]
-    const plant: IPlant = plants.filter((plant: IPlant) => plant.id === parseInt(plantId))[0]
-    console.log(plants, plantId, ' : PLANT')
+    const plantId: number = getUrlId(props, PLANT_DETAIL_URL)
+    const plant: IPlant = plants.filter((plant: IPlant) => plant.id === plantId)[0]
+
     return (
-        <div className={classes.root}>
+        <div className={root}>
             <Box m={3}>
-                <Typography variant='h6' color='primary'>Plant Details</Typography>
+                <Typography variant='h6' color='primary'>{formatMessage({ id: 'plant.detail.title' })}</Typography>
                 <ul>
                     {
-                        plant.info.map((i: string, index: number) => {
-                            return <li key={index}>{i}</li>
+                        plant.info.horticulture.map((i: string, index: number) => {
+                            return <li key={index}>{formatMessage({ id: i })}</li>
                         })
                     }
                 </ul>
             </Box>
             <Box m={3}>
-                <Typography variant='h6' color='primary'>Note</Typography>
+                <Typography variant='h6' color='primary'>{formatMessage({ id: 'plant.detail.note' })}</Typography>
                 <Typography variant='body2'>note note note</Typography>
             </Box>
         </div>

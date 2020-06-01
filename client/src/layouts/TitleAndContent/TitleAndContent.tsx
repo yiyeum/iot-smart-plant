@@ -9,9 +9,8 @@ interface ITitleAndContent extends WithStyles<typeof styles> {
 
 const styles = {
     root: {
-        backgroundImage: `url('https://images.cdn2.stockunlimited.net/clipart/plant-pattern-background_1943348.jpg')`,
-        backgroundAttachment: 'fixed',
-        minHeight: '100vh'
+        minHeight: '100vh',
+        backgroundColor: '#f9f6f0'
     }
 }
 
@@ -19,7 +18,7 @@ const TitleAndContentBase = (props: ITitleAndContent) => {
     const { title, content, classes } = props
     return (
         <div className={classes.root}>
-            <Box p={5}>
+            <Box p={7}>
                 <Title>{title}</Title>
                 {content}
             </Box>

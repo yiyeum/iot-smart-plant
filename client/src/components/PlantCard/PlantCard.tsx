@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement, FC } from 'react'
 import { makeStyles, createStyles, Typography, Card, CardActionArea, CardMedia, CardActions, CardContent, Button, Theme } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import { useIntl } from 'react-intl'
@@ -10,7 +10,8 @@ import { IPlant } from '../../models'
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            backgroundColor: theme.palette.background.paper
+            backgroundColor: theme.palette.background.paper,
+            margin: 10
         },
         center: {
             textAlign: 'center' as 'center',
@@ -33,7 +34,11 @@ const useStyles = makeStyles((theme: Theme) =>
             padding: '.9em',
             display: 'inline-block',
             marginRight: '2%'
-        }
+        },
+        warn: {
+            border: `2px solid ${theme.palette.error.light}`,
+            color: theme.palette.error.light,
+        },
     }),
 );
 
@@ -41,41 +46,43 @@ interface IPlantCard {
     plant: IPlant
 }
 
-export const PlantCard = (props: IPlantCard) => {
-    const { plant } = props
-    const classes = useStyles()
+export const PlantCard: FC<IPlantCard> = ({ plant }): ReactElement => {
+    const { id, name, type, info: { img, humidity, light } } = plant
+    const { root, center, icon, action, btn, warn } = useStyles()
     const { formatMessage } = useIntl()
 
-    return <Card key={plant.id} className={classes.root} >
+    return <Card key={id} className={root} >
         <CardActionArea>
-            <Link to={`${PLANT_DETAIL_URL}/${plant.id}`}>
+            <Link to={`${PLANT_DETAIL_URL}/${id}`}>
                 <CardMedia
-                    image={plant.img}
-                    title={plant.name}
+                    image={img}
+                    title={name}
                 >
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2" color='textPrimary'>
-                            {plant.name}
+                            {name}
+                        </Typography>
+                        <Typography gutterBottom variant="h5" component="h2" color='textPrimary'>
+                            {formatMessage({ id: type })}
                         </Typography>
                     </CardContent>
-                    <CardContent className={classes.center}>
-                        <div className={classes.icon}>
+                    <CardContent className={center}>
+                        <div className={`${icon} ${humidity < 50 ? warn : ''}`}>
                             <LocalDrinkRoundedIcon />
-                            <Typography variant='body2'>65%</Typography>
+                            <Typography variant='body2'>{humidity}%</Typography>
                         </div>
-                        <div className={classes.icon}>
+                        <div className={icon}>
                             <Brightness4Icon />
-                            <Typography variant='body2'>70%</Typography>
+                            <Typography variant='body2'>{light}%</Typography>
                         </div>
                     </CardContent>
                 </CardMedia>
             </Link>
         </CardActionArea>
-        <CardActions className={classes.action}>
-            <Button size="small" className={classes.btn}>
+        <CardActions className={action}>
+            <Button size="small" className={btn}>
                 {formatMessage({ id: 'plant.card.water' })}
             </Button>
         </CardActions>
     </Card >
 }
-
