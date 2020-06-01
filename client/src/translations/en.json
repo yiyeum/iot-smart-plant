@@ -1,5 +1,16 @@
 {
     "dashboard.title": "Dashboard",
     "plant.card.water": "Water",
-    "plant.detail.title": "Plant Detail"
+    "plant.detail.title": "Plant Detail",
+    "plant.detail.note": "Note",
+    "plant.error.noplant": "No plant was added yet. Please, add plants to start",
+    "plant.tulip.type.triumph.name": "Triumph Tulip",
+    "plant.type.fiddle.name": "Fiddle Leaf Pig",
+    "plant.type.fern.name": "Asparagus Fern",
+    "plant.type.yucca.name": "Yucca",
+    "plant.type.peace.lily.name": "Peace Lily",
+    "plant.tulip.type.triumph.description": "While tulips were known from at least the 12th century in Persia, and appear in decorative art in Turkey in the 13th century, the first description in European botanical literature, was by Conrad Gesner in his De Hortus Germanica (1561), which he referred to as Tulipa turcarum, and states he saw in a garden in Augsburg in 1559",
+    "plant.tulip.type.triumph.horticulture.1": "They should be planted in good soil that is well-drained and never soggy",
+    "plant.tulip.type.triumph.horticulture.2": "They are remarkably versatile and will grow in sun or part shade",
+    "plant.tulip.type.triumph.horticulture.3": "Their bulbs should be planted in mid to late fall, any time after the first frost and before the ground freezes"
 }

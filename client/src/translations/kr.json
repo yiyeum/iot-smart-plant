@@ -1,0 +1,16 @@
+{
+    "dashboard.title": "대시보드",
+    "plant.card.water": "물주기",
+    "plant.detail.title": "식물 디테일",
+    "plant.detail.note": "노트",
+    "plant.error.noplant": "등록된 식물이 없습니다.",
+    "plant.tulip.type.triumph.name": "트럼프 튤립",
+    "plant.type.fiddle.name": "피들 리프 피그",
+    "plant.type.fern.name": "아스파라구스 펀",
+    "plant.type.yucca.name": "유카",
+    "plant.type.peace.lily.name": "피스릴리",
+    "plant.tulip.type.triumph.description": "튤립은 페르시아에서 적어도 12 세기부터 알려졌고 13 세기에 터키의 장식 예술에 등장했지만 유럽 식물 문헌에 대한 첫 번째 설명은 콘라드 게스 너 (Conrad Gesner)가 그의 De Hortus Germanica (1561)에서 언급 되었다.",
+    "plant.tulip.type.triumph.horticulture.1": "배수가 잘되고 결코 젖지 않는 좋은 토양에 심어야합니다.",
+    "plant.tulip.type.triumph.horticulture.2": "그들은 놀랍도록 다재다능하고 태양 또는 부분 그늘에서 자랍니다.",
+    "plant.tulip.type.triumph.horticulture.3": "첫 서리가 지나고 땅이 얼기 전에 언제든지 중순에서 늦은 가을에 심어야합니다."
+}
